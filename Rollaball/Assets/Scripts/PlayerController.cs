@@ -24,7 +24,6 @@ public class PlayerController : MonoBehaviour
    public TextMeshProUGUI endText;
    public GameObject winTextObject;
 
-   // Start is called before the first frame update.
    void Start()
    {
       // Get and store the Rigidbody component attached to the player.
@@ -121,6 +120,10 @@ public class PlayerController : MonoBehaviour
          other.gameObject.SetActive(false);
          count++;
          SetCountText();
+
+         // Play the sound effect.
+         AudioSource audioSource = GetComponent<AudioSource>();
+         audioSource.Play();
       }
    }
 }
