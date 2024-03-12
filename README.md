@@ -18,4 +18,4 @@ However, I evolved it to make it similar to a Super Monkey Game.
 
 - Assets for Monkey Ball (player) extracted from: [UltraCavemanSpheresPrototype](https://github.com/grego-git/UltraCavemanSpheresPrototype.git)
 
-- Asset for Banana extracted from: [RigModels](https://rigmodels.com)
+- Asset for Banana extracted from: [RigModels](https://rigmodels.com/model.php?view=Bunch_of_Bananas-3d-model__KUV5RBXJWV2HESIWIHSPLKQ8O)

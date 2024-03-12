@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -48,7 +49,7 @@ public class PlayerController : MonoBehaviour
 
    void SetCountText() 
    {
-      countText.text =  "Count: " + count.ToString();
+      countText.text =  "Bananas: " + count.ToString();
       if (count >= 12)
       {
          SetEndText(true);
@@ -72,7 +73,8 @@ public class PlayerController : MonoBehaviour
          }
          else
          {
-            endText.text = "You Lose!";
+            // Reload the active scene.
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
          }
       }
    }
@@ -108,6 +110,12 @@ public class PlayerController : MonoBehaviour
                SetEndText(true);
             }
          }
+      }
+
+      // Detect player height and restart the game if it's less than 0.
+      if (transform.position.y < 0)
+      {
+         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
       }
    }
 
