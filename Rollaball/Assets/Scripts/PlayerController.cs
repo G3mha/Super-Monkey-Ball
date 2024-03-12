@@ -17,16 +17,22 @@ public class PlayerController : MonoBehaviour
 
    // Speed at which the player moves.
    public float speed = 0;
+   public float timeRemaining = 60;
+   public bool timerIsRunning = false;
    public TextMeshProUGUI countText;
+   public TextMeshProUGUI timerText;
+   public TextMeshProUGUI endText;
    public GameObject winTextObject;
 
    // Start is called before the first frame update.
    void Start()
    {
-   // Get and store the Rigidbody component attached to the player.
+      // Get and store the Rigidbody component attached to the player.
       rb = GetComponent<Rigidbody>();
       count = 0;
       SetCountText();
+      SetTimerText();
+      timerIsRunning = true;
       winTextObject.SetActive(false);
    }
  
@@ -37,8 +43,8 @@ public class PlayerController : MonoBehaviour
       Vector2 movementVector = movementValue.Get<Vector2>();
 
       // Store the X and Y components of the movement.
-      movementX = movementVector.x; 
-      movementY = movementVector.y; 
+      movementX = movementVector.x;
+      movementY = movementVector.y;
    }
 
    void SetCountText() 
@@ -46,7 +52,29 @@ public class PlayerController : MonoBehaviour
       countText.text =  "Count: " + count.ToString();
       if (count >= 12)
       {
+         SetEndText(true);
+         timerIsRunning = false;
+      }
+   }
+
+   void SetTimerText()
+   {
+      timerText.text = "Time: " + timeRemaining.ToString("F2");
+   }
+
+   void SetEndText(bool win)
+   {
+      if (winTextObject != null)
+      {
          winTextObject.SetActive(true);
+         if (win)
+         {
+            endText.text = "You Win!";
+         }
+         else
+         {
+            endText.text = "You Lose!";
+         }
       }
    }
 
@@ -58,6 +86,30 @@ public class PlayerController : MonoBehaviour
 
       // Apply force to the Rigidbody to move the player.
       rb.AddForce(movement * speed); 
+
+      // Update the timer.
+      if (timerIsRunning)
+      {
+         if (timeRemaining > 0)
+         {
+            timeRemaining -= Time.deltaTime;
+            SetTimerText();
+         }
+         // if time is over and the count is less than 12, the player loses.
+         else
+         {
+            timeRemaining = 0;
+            timerIsRunning = false;
+            if (count < 12)
+            {
+               SetEndText(false);
+            }
+            if (count >= 12)
+            {
+               SetEndText(true);
+            }
+         }
+      }
    }
 
    private void OnTriggerEnter(Collider other)
