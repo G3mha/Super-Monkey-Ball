@@ -14,6 +14,14 @@ The project started as an implementation of [Roll-a-ball](https://learn.unity.co
 
 However, I evolved it to tribute to a Nintendo GameCube classic game, Super Monkey Ball.
 
+## Screenshots
+
+![Demo image 1](./docs/img/demo1.png)
+
+![Demo image 2](./docs/img/demo2.png)
+
+![Demo image 3](./docs/img/demo3.png)
+
 ## References
 
 - Assets for sound effects and music extracted from: [UltraCavemanSpheresPrototype](https://github.com/grego-git/UltraCavemanSpheresPrototype.git)
