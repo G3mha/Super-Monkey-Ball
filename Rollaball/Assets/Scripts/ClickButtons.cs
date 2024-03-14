@@ -9,11 +9,16 @@ public class ClickButtons : MonoBehaviour
 {
     public void OnPlayButton()
     {
-        SceneManager.LoadScene("Minigame");
+        SceneManager.LoadScene("Instructions");
     }
 
     public void OnQuitButton()
     {
         Application.Quit();
+    }
+
+    public void OnContinueButton()
+    {
+        SceneManager.LoadScene("Minigame");
     }
 }

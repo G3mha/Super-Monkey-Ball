@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
          winTextObject.SetActive(true);
          if (win)
          {
-            endText.text = "You Win!";
+            endText.text = "Goal!!";
          }
          else
          {
