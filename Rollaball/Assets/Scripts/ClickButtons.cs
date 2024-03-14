@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class ClickButtons : MonoBehaviour
 {
-
     public void OnPlayButton()
     {
         SceneManager.LoadScene("Minigame");
